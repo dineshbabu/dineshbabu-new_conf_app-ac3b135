@@ -1,0 +1,17 @@
+<table height="100%" >
+    <tr height="40">
+       <td><font color="white"><%=link_to "Home", "home" , {class: "mainNav"} %></font></td>
+    </tr>
+    <tr height="40">
+       <td><img width=120 height=96 src="/assets/CM-icon.jpg"/><font color="white"><%=link_to "CM", "cm", {class: "mainNav"} %></font></td>
+    </tr>
+    <tr height="40">
+       <td><img width=120 height=96 src="/assets/SCT-icon.jpg"/><font color="white"><%=link_to "Serena Common Tomcat", "tomcat", {class: "mainNav"} %></font></td>
+    </tr>
+	<tr height="40">
+       <td><img width=120 height=96 src="/assets/ALM-icon.jpg"/><font color="white"><%=link_to "ALM", "alm", {class: "mainNav"} %></font></td>
+    </tr>
+    <tr>
+       <td>&nbsp;</td>
+    </tr>
+</table>

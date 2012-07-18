@@ -1,0 +1,75 @@
+<% @navName = session[:subNavName]; 
+if @navName == "home"%>
+
+	<table height="100%" >
+	    <tr height="40">
+	       <td><font color="white">Import Configuration</font></td>
+	    </tr>
+	    <tr height="40">
+	       <td><font color="white">Export Configuration</font></td>
+	    </tr>
+	    <tr height="40">
+	       <td><font color="white"><%=link_to "Health Test", "healthcheck" , {class: "subNav"} %></font></td>
+	    </tr>
+		<tr>
+	       <td>&nbsp;</td>
+	    </tr>
+	</table>
+	
+	
+<% elsif @navName == "cmSubNav"%>
+
+	<table height="100%">
+		<tr height="40">	   
+		   <td><%=link_to "Home", "editcmhome" , {class: "subNav"} %></td>
+		</tr>
+		<tr height="40">
+			<td><font color="white"><%=link_to "Database Management", "databasemanagement" , {class: "subNav"} %></font></td>
+		</tr>
+		<tr height="40">	   
+		   <td><%=link_to "Listener", "editlistener" , {class: "subNav"} %></td>
+		</tr>
+		<tr height="40">
+			<td><font color="white">Deployment</font></td>                        	
+		</tr>
+		<tr height="40">
+			<td><font color="white">Scheduler</font></td>                        	
+		</tr>
+		<tr height="40">
+			<td><font color="white">E-mail</font></td>                        	
+		</tr>
+		<tr>
+		   <td>&nbsp;</td>
+		</tr>
+	</table>
+<% elsif @navName == "tomcatSubNav"%>
+
+	<table height="100%">
+		<tr height="40">
+			<td><font color="white"><%=link_to "Home", "edittomcathome" , {class: "subNav"} %></font></td>
+		</tr>
+		<tr height="40">	   
+		   <td> <font color="white">Logging</font></td>
+		</tr>		
+		<tr>
+		   <td>&nbsp;</td>
+		</tr>
+	</table>
+<% elsif @navName == "almSubNav"%>
+
+	<table height="100%">
+		<tr height="40">
+			<td><%=link_to "Home", "editalmhome" , {class: "subNav"} %></td>
+		</tr>
+		<tr height="40">	   
+		   <td><%=link_to "Single Sign-On", "editalmsinglesignon" , {class: "subNav"} %></td>
+		</tr>
+		<tr height="40">
+			<td><font color="white">Database Mangement</font></td>
+		</tr>		
+		<tr>
+		   <td>&nbsp;</td>
+		</tr>
+	</table>
+<%end%>
+

@@ -1,0 +1,70 @@
+<script>
+	$(document).ready(function() {
+		$( "#tabs" ).tabs();
+		//$( "#ConnectionDetailsSubTabs" ).tabs();
+		$( "#CreateSampleDatabaseSubTabs" ).tabs({ spinner: "Please wait..." });
+		//$( "#UpgradeSubTabs" ).tabs();
+		
+		/*$('#connDetails').bind('click', function(){
+			$( "#tabs1subtabs" ).tabs();
+		});
+		$('#createSampleDatabase').bind('click', function(){
+			$( "#tabs2subtabs" ).tabs();
+		});
+		$('#upgrade').bind('click', function(){
+			$( "#tabs3subtabs" ).tabs();
+		});*/
+	});	
+	
+</script>
+
+<div class="demo">
+<h1>Database Management</h1><br>
+<div id="tabs">
+	<ul>
+		<li><a href="#ConnectionDetailsContents">Connection Details</a></li>
+		<li><a href="#CreateSampleDatabaseSubTabs">Create Sample Database</a></li>
+		<li><a href="#UpgradeContents">Upgrade</a></li>
+	</ul>
+	
+	<div id="ConnectionDetailsContents">
+		Connection Details under construction
+	</div>	
+	
+	<div id="CreateSampleDatabaseSubTabs">
+		<ul>
+			<!--<li><a href="#CreateSampleDatabaseSubTabs-1-content">Typical Stream Development2</a></li>-->
+			<li><a href="/files/edittypicalstreamdevelopment">Typical Stream Development</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-2-content">Typical Non-Stream Development</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-3-content">Intermediate</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-4-content">Custom</a></li>
+		</ul>
+		<!--<div id="CreateSampleDatabaseSubTabs-1-content">
+			<p>				
+				Typical Stream Development2 content
+			</p>
+		</div>-->
+		
+		<div id="CreateSampleDatabaseSubTabs-2-content">
+			<p>
+				Typical Non-Stream Development under construction
+			</p>
+		</div>
+		
+		<div id="CreateSampleDatabaseSubTabs-3-content">
+			<p>
+				Intermediate content  under construction
+			</p>
+		</div>
+		<div id="CreateSampleDatabaseSubTabs-4-content">
+			<p>
+				Custom content  under construction
+			</p>
+		</div>
+	</div>
+	<div id="UpgradeContents">
+		Upgrade under construction
+	</div>
+</div>
+
+</div><!-- End demo -->

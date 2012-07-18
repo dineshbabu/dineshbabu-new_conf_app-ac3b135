@@ -1,0 +1,17 @@
+<table height="100%" >
+    <tr height="40">
+       <td><font color="white"><%=link_to "Home", "home" , {class: "mainNav"} %></font></td>
+    </tr>
+    <tr height="40">
+       <td><font color="white"><%=link_to "CM", "cm", {class: "mainNav"} %></font></td>
+    </tr>
+    <tr height="40">
+       <td><font color="white">SBM</font></td>
+    </tr>
+    <tr height="40">
+       <td><font color="white">DVM</font></td>
+    </tr>
+	<tr>
+       <td>&nbsp;</td>
+    </tr>
+</table>

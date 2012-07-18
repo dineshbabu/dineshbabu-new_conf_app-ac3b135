@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+	
+  </head>
+  <body>
+  <table border="1"  width="100%">
+    <tr>
+       <td>Header</td>
+    </tr>
+    <tr><!-- Everything below header -->
+       <td>
+	   	   <table border="1"  width="100%">
+              <tr>
+                 <td><!-- Main Nav -->
+				 	 <table border="1"  width="100%">
+                        <tr>
+                           <td>Home</td>
+                        </tr>
+                        <tr>
+                           <td>CM</td>
+                        </tr>
+                        <tr>
+                           <td>SBM</td>
+                        </tr>
+                        <tr>
+                           <td>DVM</td>
+                        </tr>
+					</table>
+
+				 </td>
+                 <td><!-- Sub Nav -->
+				 	 <table border="1"  width="100%">
+                        <tr>
+                           <td>Sample Database</td>
+                        </tr>
+                        <tr>
+                           <td>Listener</td>
+                        </tr>
+                        <tr>
+                           <td>Deployment</td>
+                        </tr>
+                        <tr>
+                           <td>Scheduler</td>
+                        </tr>
+                        <tr>
+                           <td>E-mail</td>
+                        </tr>
+					</table>
+
+				 </td>
+                 <td><iframe src="/_form.html.erb" width="100%"></iframe> </td>
+              </tr>
+          </table>
+
+	   </td>
+    </tr>
+</table>
+
+  </body>
+</html>
+
+<!--
+<h1>Edit listener.dat</h1><br>
+<%= render 'form' %>
+
+<%= link_to 'Show', @dmconf %> |
+<%= link_to 'Back', dmconfs_path %>

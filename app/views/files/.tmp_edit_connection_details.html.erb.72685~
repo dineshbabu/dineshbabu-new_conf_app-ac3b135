@@ -1,0 +1,45 @@
+<h1>Health Test</h1>
+<%= form_tag( "/files/dohealthcheck", :html => { :multipart => true }, :remote => true ) do  %>
+
+   	<table width="100%" border="0" height="100%">
+   		<tr>
+			<td colspan="2">
+				<font color="red" id="displayError">
+					<%= @error %>
+				</font>
+			</td>
+		</tr>
+	    <tr height="100%">
+	        <td height="100%" colspan="2">
+	        	<% @installations.to_a.each { |installation| %>
+				<%= check_box_tag "installations[]", installation %> <%=installation%><br>
+				<% }%>								
+	        </td>
+	    </tr>
+		<tr>
+			<td colspan="2">
+				<%= button_tag "Begin test"%>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				&nbsp;
+			</td>
+		</tr>		
+		<tr>
+			<td width="500px">
+				<div id="resultsSummary" style=" height: 400px; overflow: auto; border:1px solid grey; display:none" >
+				</div>
+			</td>
+			<td >
+				<div id="resultDetailsDiv" style="height: 400px; width: 500px; overflow: auto; display:none" >
+					<table width="100%" style="border:1px solid grey" rules="none" frame="box" table-layout="fixed">
+						<tr>
+							<td id="resultsDetails"></td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+    </table>	
+  <% end %>

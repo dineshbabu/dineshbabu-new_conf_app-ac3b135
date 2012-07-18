@@ -1,0 +1,50 @@
+$('#displayError').empty();
+$('#displayError').hide();
+$('#resultsDetails').empty();
+$('#resultDetailsDiv').hide();
+$('#resultsSummary').empty();
+$('#resultsSummary').hide();
+<% if !@error.nil? %>	
+	$('#displayError').show();	
+	$('#displayError').text('<%= @error %>');	
+<% else%>
+var resultDetails = "";
+var resultSummary =	"<table width=\"100%\" >"+
+						"<tr >"+
+							"<th align=\"left\" >Product</th>"+
+							"<th align=\"left\" >Area</th>"+
+							"<th align=\"left\" >Result</th>"+
+						"</tr>";
+						
+						<% 
+							@count = 0;
+							@style = "";
+							for healthCheck in @healthCheckResult
+								@count += 1;
+								@style = "";
+								if( @count % 2 != 0 )
+									@style = "style=\'background-color:white;\'";
+								end
+						%> 
+	   resultSummary += "<tr <%=@style%> >"+
+							"<td><%=healthCheck.product%></td>"+
+							"<td><%=healthCheck.area%></td>"+
+							"<td><a href=\"javascript:setResultDetails(\'<%=healthCheck.resultsummary%>\')\"><%=healthCheck.passfail%></a></td>"+
+						"</tr>";							
+							
+						<%
+							end
+						%>
+    resultSummary += "</table>";  
+if(resultSummary && resultSummary.length != 0){  
+	$('#resultsSummary').html(resultSummary);
+	$('#resultsSummary').show();
+}
+
+function setResultDetails(resultsDetails){
+	$('#resultsDetails').empty();
+	$('#resultDetailsDiv').show();	
+	$('#resultsDetails').append(resultsDetails); 
+}
+
+<% end %>

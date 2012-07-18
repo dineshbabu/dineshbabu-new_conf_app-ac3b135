@@ -1,0 +1,101 @@
+<%= javascript_include_tag 'jquery-1.7.2.min' %>
+<%= javascript_include_tag 'jquery_ujs' %>
+<script>
+  	
+	
+  var osLoginID = " The Operating System login ID for the Tool Manager of the demo process model.";
+  var processModelDirectory = "Directory to contain the demo process model areas.";
+  
+  function displayHelp(document, field) {
+  	
+	var help="";
+	var id = "";
+	switch(field) {
+	case "osLoginID":
+		help =  osLoginID;
+		id = "osloginidhelp";
+		break;
+	case "processModelDirectory":
+		help = processModelDirectory;
+		id = "processmodeldirectoryhelp";
+		break;
+	}
+	 document.getElementById(id).innerHTML=help;
+  }
+  </script>
+
+<%= form_for(@typicalStreamDevelopment , :remote => true, :url => { :action => "update_typical_stream_development" }) do |f| %>
+  <% if @typicalStreamDevelopment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@typicalStreamDevelopment.errors.count, "error") %> . Please correct.</h2>
+
+      <ul>
+      <% @typicalStreamDevelopment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div id="message">
+  		
+    </div>
+   	<table width="100%" border="0" style="background-color:" height="100%">
+	    <tr height="100%">
+	        <td height="100%">
+	        	<table width="100%" height="100%">
+					<tr>
+						<td colspan="5">
+							<%= field_set_tag do %>
+  							<p>A demo database for teams preferring to use a "copy, modify, merge" methodology, typically used by Agile teams, where no lock is applied before code changes are made and a single line of descent is enforced.</p>
+							<% end %>
+						</td>
+						<td width="55%">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="5">&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="190"><%= f.label :osLoginId, "OS Login ID"%></td>
+						<td width="12">:</td>
+						<td width="190"><%= f.text_field :osLoginId %></td>
+						<td width="16"> <img height="16" width="16"  src="/assets/help.gif" alt="OS Login ID help" onclick=displayHelp(document,"osLoginID")></td>
+						<td colspan="2"><div id="osloginidhelp" class="help"></div></td>
+					</tr>
+					
+					<tr>
+						<td colspan="5">
+							<%= field_set_tag "Work and Deployment Areas" do %>
+								<table width="100%">
+								    <tr>						
+										<td width="175"><%= f.label :areaOwnerId, "Area Owner ID" %></td>
+										<td width="13">:</td>
+										<td><%= f.text_field :areaOwnerId %></td>
+									</tr>
+									<tr>
+										<td><%= f.label :password %></td>
+										<td>:</td>
+										<td><%= f.password_field :password %></td>
+									</tr>
+								</table>							
+							<% end %>
+						</td>
+						<td>&nbsp;</td>
+					</tr>					
+					<tr>
+						<td><%= f.label :processModelDirectory, "Process Model Directory" %></td>
+						<td>:</td>
+						<td><%= f.text_field :processModelDirectory %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="dsn help" onclick=displayHelp(document,"processModelDirectory")></td>
+						<td colspan="2"><div id="processmodeldirectoryhelp" class="help"></div></td>
+					</tr>					
+				</table>
+	        </td>			
+	    </tr>
+		<tr>
+			<td>
+				<%= f.submit "Test" %>
+				<%= f.submit "Create Database" %>				
+			</td>
+		</tr>
+    </table>
+  <% end %>

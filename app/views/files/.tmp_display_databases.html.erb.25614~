@@ -1,0 +1,138 @@
+
+<script>
+  	
+	
+  var service = " service:<br>Specifies the port to listen to for client connections. You may, therefore, run more than one pool manage using different ports.";
+  var user = "user: <br> Specifies the operating system account name that will own every application process in the pool. For the Serena-Supplied Runtime RDBMS or Oracle Enterprise, this can be any arbitrary valid operating system account; whereas, for Microsoft SQL Server Enterprise, it must be the operating system account of the database owner. NOTE See the -restricted parameter concerning area/remote node authentication credentials with respect to running a server or agent in restricted mode.";
+  var dsn = "dsn: <br> Specifies the Dimensions CM base database name and the ODBC data source name (DSN) to use when starting up the initial applications servers at the time of pool manager startup."
+  var min = "min: <br> Minimum number of application servers that the pool will shrink to.";
+  var max = "max: <br> Maximum number of application servers that the pool will expand to."
+  var initial = "initial: <br> Initial number of application servers that will be created in the pool at startup time. These will use the database connection parameter -dsn for identifying the base database to connect to.";
+  var free = "free: <br> The maximum number of application servers that may be left idle. Once this limit is reached, the pool will start shrinking as necessary by destroying idle application servers.";
+  var idle_timeout = "idle_timeout: <br> Minimum: none, but 60 is recommended The amount of time, in seconds, that a client can be idle before it is disconnected."; 
+  var session_timeout = "session_timeout: <br> Minimum 3600 (1 hour). The amount of time, in seconds, that a client's session state is maintained by the pool manager before being discarded. The application server and the Dimensions CM license token are then returned to the pool. NOTE This value overrides the session-timeout parameter used in web-inf\web.xml files.";
+  
+  function displayHelp(document, field) {
+  	
+	var help="";
+	switch(field) {
+	case "service":
+		help =  service;
+		break;
+	case "user":
+		help = user;
+		break;
+	case "dsn":
+		help = dsn;
+		break;
+	case "min":
+		help = min;
+		break;
+	case "max":
+		help = max;
+		break;
+	case "initial":
+		help = initial;
+		break;
+	case "free":
+		help = free;
+		break;
+	case "idle_timeout":
+		help = idle_timeout;
+		break;
+	case "session_timeout":
+		help = session_timeout;
+		break;
+	}
+	 document.getElementById("help").innerHTML=help;
+  }
+  </script>
+<h1>Edit listener.dat</h1><br>
+<%= form_for(@listener , :url => { :action => "update_listener" }) do |f| %>
+  <% if @listener.errors.any? %>
+    <div id="error_explanation">
+      <h2>Please correct the following <%= pluralize(@listener.errors.count, "error") %>:</h2>
+
+      <ul>
+      <% @listener.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+   	<table width="550" border="0" style="background-color:" height="100%">
+	    <tr height="100%">
+	        <td height="100%">
+	        	<table width="350" height="100%">
+					<tr>
+						<td><%= f.label :service %></td>
+						<td>:</td>
+						<td><%= f.text_field :service %></td>
+						<td> <img style="background-color:#cac0b7;" height="16" width="16" src="/assets/help.gif" alt="Service help" onclick=displayHelp(document,"service")></td>
+					</tr>
+					<tr>
+						<td><%= f.label :user %></td>
+						<td>:</td>
+						<td><%= f.text_field :user %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="User help" onclick=displayHelp(document,"user")></td>
+					</tr>
+					<tr>
+						<td><%= f.label :min %></td>
+						<td>:</td>
+						<td><%= f.text_field :min %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="Min help" onclick=displayHelp(document,"min")></td>
+					</tr>
+					<tr>
+						<td><%= f.label :max %></td>
+						<td>:</td>
+						<td><%= f.text_field :max %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="Max help" onclick=displayHelp(document,"max")></td>
+					</tr>
+					<tr>
+						<td><%= f.label :dsn %></td>
+						<td>:</td>
+						<td><%= f.text_field :dsn %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="dsn help" onclick=displayHelp(document,"dsn")></td>
+					</tr>
+					<tr>
+						<td><%= f.label :initial %></td>
+						<td>:</td>
+						<td><%= f.text_field :initial %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="initial help" onclick=displayHelp(document,"initial")></td>
+					</tr>
+					<tr>
+						<td><%= f.label :free %></td>
+						<td>:</td>
+						<td><%= f.text_field :free %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="free help" onclick=displayHelp(document,"free")></td>
+					</tr>
+					<tr>
+						<td><%= f.label :idle_timeout %></td>
+						<td>:</td>
+						<td><%= f.text_field :idle_timeout %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="idle timeout help" onclick=displayHelp(document,"idle_timeout")></td>
+					</tr>
+					<tr>
+						<td><%= f.label :session_timeout %></td>
+						<td>:</td>
+						<td><%= f.text_field :session_timeout %></td>
+						<td> <img height="16" width="16"  src="/assets/help.gif" alt="session timeout help" onclick=displayHelp(document,"session_timeout")></td>
+					</tr>
+				</table>
+	        </td>
+	        <td height="100%">
+	        	<table width="350" border="0" height="100%">
+				    <tr height="100%">
+				        <td height="100%">
+				        	<div  height="100%"><p id="help" class="help"></p></div>
+				        </td>
+				    </tr>
+				</table>
+	        </td>
+	    </tr>
+    </table>
+
+	<%= f.submit "Test"%>
+	<%= f.submit "Save"%>
+  <% end %>

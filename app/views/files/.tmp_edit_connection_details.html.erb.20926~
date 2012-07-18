@@ -1,0 +1,196 @@
+<%= javascript_include_tag 'jquery-1.7.2.min' %>
+<script>
+	function displayDatabaseDetails(database){
+		if(database == "Oracle"){
+			$('#oracleDatabaseDetails').show();
+			$('#sqlDatabaseDetails').hide();
+		}else{
+			$('#oracleDatabaseDetails').hide();
+			$('#sqlDatabaseDetails').show();
+		}
+	}
+</script>
+<%= form_for(@connectionDetails , :url => { :action => "update_connection_details" }, remote:true ) do |f| %>
+
+   	<table width="100%" border="0" height="100%">
+   		<tr>
+			<td colspan="2">
+				<font color="red" id="displayError">
+					<%= @error %>
+				</font>
+			</td>
+		</tr>
+		<tr height="100%">
+	        <td height="100%" colspan="2">
+	        	<table>
+	        		<tr>
+	        			<td>
+	        				<table>
+        						<% @connectionDetails.databaseInstances.to_a.each { |databaseInstance| %>
+								<tr>
+									<td>
+										<%= radio_button_tag "connectionDetails.databaseInstances[]", databaseInstance, "Oracle" == databaseInstance , {onClick:"displayDatabaseDetails(this.value)"} %> <%=databaseInstance%><br>
+									</td>
+								</tr>
+								<% }%>	        					
+	        				</table>		        			
+	        			</td>
+						<td>
+	        				<table>
+        						<% @connectionDetails.databaseLocation.to_a.each { |databaseLocation| %>
+								<tr>
+									<td>
+										<%= radio_button_tag "connectionDetails.databaseLocation[]", databaseLocation , "Local" == databaseLocation %> <%=databaseLocation%><br>
+									</td>
+								</tr>
+								<% }%>
+	        				</table>		        			
+	        			</td>	        			
+	        		</tr>
+	        	</table>							
+	        </td>
+	    </tr>
+		
+		<tr id = "oracleDatabaseDetails">
+			<td>
+				<%= field_set_tag "Database Details" do %>
+				<table>
+					<tr>
+						<td colspan="3">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Oracle Installation
+						</td>
+						<td>:</td>
+						<td>
+							<%= select_tag 'oracleInstance', options_for_select(@connectionDetails.oracleInstances), include_blank: true %><br />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Administartor User
+						</td>
+						<td>:</td>
+						<td>
+							<%= f.text_field(:adminUser) %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Administartor Password
+						</td>
+						<td>:</td>
+						<td>
+							<%= f.password_field(:adminPassword) %>
+						</td>
+					</tr>
+				</table>
+				<% end %>
+			</td>
+		</tr>
+		
+		<tr id="sqlDatabaseDetails" style="display:none;">
+			<td>
+				<%= field_set_tag "Database Details" do %>
+				<table>
+					<tr>
+						<td colspan="3">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							SQL Server Instance
+						</td>
+						<td>:</td>
+						<td>
+							<%= select_tag 'sqlInstance', options_for_select(@connectionDetails.sqlServerInstances), include_blank: true %><br />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							DB Name
+						</td>
+						<td>:</td>
+						<td>
+							<%= f.text_field(:adminUser) %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							ODBC DSN
+						</td>
+						<td>:</td>
+						<td>
+							<%= f.text_field(:adminPassword) %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&nbsp;
+						</td>
+						<td>&nbsp;</td>
+						<td >
+							<%= button_tag "Create DSN", :type => 'button'%>
+						</td>						
+					</tr>
+				</table>
+				<% end %>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<%= field_set_tag "Default CM Database" do %>
+				<table>
+					<tr>
+						<td>
+							Database Name
+						</td>
+						<td>:</td>
+						<td>
+							<%= f.text_field(:defaultCMDatabaseName) %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Database Password
+						</td>
+						<td>:</td>
+						<td>
+							<%= f.password_field(:defaultCMDatabasePassword) %>
+						</td>
+					</tr>
+				</table>
+				<% end %>
+			</td>
+		</tr>				
+		<tr>
+			<td>
+				<%= button_tag "Test", :type => 'button'%>
+				<%= button_tag "Save", :type => 'button'%>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				&nbsp;
+			</td>
+		</tr>		
+		<tr>
+			<td width="500px">
+				<div id="resultsSummary" style=" height: 400px; overflow: auto; border:1px solid grey; display:none" >
+				</div>
+			</td>
+			<td >
+				<div id="resultDetailsDiv" style="height: 400px; width: 500px; overflow: auto; display:none" >
+					<table width="100%" style="border:1px solid grey" rules="none" frame="box" table-layout="fixed">
+						<tr>
+							<td id="resultsDetails"></td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+    </table>	
+  <% end %>

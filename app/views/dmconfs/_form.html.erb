@@ -1,0 +1,95 @@
+<%= form_for(@dmconf) do |f| %>
+  <% if @dmconf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dmconf.errors.count, "error") %> prohibited this dmconf from being saved:</h2>
+
+      <ul>
+      <% @dmconf.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!--<div class="field">
+    <%= f.label :path %>:    <%= @dmconf.path %>
+  </div>-->
+  <div class="field">
+  	<table width="550" border="0" style="background-color:">
+    <tr>
+        <td>
+        	<table width="350">
+				<tr>
+					<td><%= f.label :service %></td>
+					<td>:</td>
+					<td><%= f.text_field :service %></td>
+					<td> <img style="background-color:#cac0b7;" height="16" width="16" src="/assets/help.gif" alt="Service help" onclick=displayHelp(document,"service")></td>
+				</tr>
+				<tr>
+					<td><%= f.label :user %></td>
+					<td>:</td>
+					<td><%= f.text_field :user %></td>
+					<td> <img height="16" width="16"  src="/assets/help.gif" alt="User help" onclick=displayHelp(document,"user")></td>
+				</tr>
+				<tr>
+					<td><%= f.label :min %></td>
+					<td>:</td>
+					<td><%= f.text_field :min %></td>
+					<td> <img height="16" width="16"  src="/assets/help.gif" alt="Min help" onclick=displayHelp(document,"min")></td>
+				</tr>
+				<tr>
+					<td><%= f.label :max %></td>
+					<td>:</td>
+					<td><%= f.text_field :max %></td>
+					<td> <img height="16" width="16"  src="/assets/help.gif" alt="Max help" onclick=displayHelp(document,"max")></td>
+				</tr>
+				<tr>
+					<td><%= f.label :dsn %></td>
+					<td>:</td>
+					<td><%= f.text_field :dsn %></td>
+					<td> <img height="16" width="16"  src="/assets/help.gif" alt="dsn help" onclick=displayHelp(document,"dsn")></td>
+				</tr>
+				<tr>
+					<td><%= f.label :initial %></td>
+					<td>:</td>
+					<td><%= f.text_field :initial %></td>
+					<td> <img height="16" width="16"  src="/assets/help.gif" alt="initial help" onclick=displayHelp(document,"initial")></td>
+				</tr>
+				<tr>
+					<td><%= f.label :free %></td>
+					<td>:</td>
+					<td><%= f.text_field :free %></td>
+					<td> <img height="16" width="16"  src="/assets/help.gif" alt="free help" onclick=displayHelp(document,"free")></td>
+				</tr>
+				<tr>
+					<td><%= f.label :idle_timeout %></td>
+					<td>:</td>
+					<td><%= f.text_field :idle_timeout %></td>
+					<td> <img height="16" width="16"  src="/assets/help.gif" alt="idle timeout help" onclick=displayHelp(document,"idle_timeout")></td>
+				</tr>
+				<tr>
+					<td><%= f.label :session_timeout %></td>
+					<td>:</td>
+					<td><%= f.text_field :session_timeout %></td>
+					<td> <img height="16" width="16"  src="/assets/help.gif" alt="session timeout help" onclick=displayHelp(document,"session_timeout")></td>
+				</tr>
+			</table>
+        </td>
+        <td height="100%">
+        	<table width="350" border="0" height="100%">
+			    <tr height="100%">
+			        <td height="100%">
+			        	<div  height="100%"><p id="help" class="help"></p></div>
+			        </td>
+			    </tr>
+			</table>
+        </td>
+    </tr>
+</table>
+
+	  </div>
+  <div class="actions">
+    
+	<input type="submit" value="Update" name="commit" style="background-color:">
+  </div>
+<% end %>

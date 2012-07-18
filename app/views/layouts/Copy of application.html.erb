@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NewConfApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "jquery-ui-1.8.20.custom", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'jquery-1.7.2.min' %>
+  <%= javascript_include_tag 'jquery-ui-1.8.20.custom.min' %>
+  
+  
+  <%= csrf_meta_tags %>
+  <script>
+  	
+	function setFrameSrc(iFrame, url){
+		iFrame.src = url;
+	}
+  var service = " service help:<br>Specifies the port to listen to for client connections. You may, therefore, run more than one pool manage using different ports.";
+  var user = "user help: <br> Specifies the operating system account name that will own every application process in the pool. For the Serena-Supplied Runtime RDBMS or Oracle Enterprise, this can be any arbitrary valid operating system account; whereas, for Microsoft SQL Server Enterprise, it must be the operating system account of the database owner. NOTE See the -restricted parameter concerning area/remote node authentication credentials with respect to running a server or agent in restricted mode.";
+  var dsn = "dsn help: <br> Specifies the Dimensions CM base database name and the ODBC data source name (DSN) to use when starting up the initial applications servers at the time of pool manager startup."
+  var min = "min help: <br> Minimum number of application servers that the pool will shrink to.";
+  var max = "max help: <br> Maximum number of application servers that the pool will expand to."
+  var initial = "initial help: <br> Initial number of application servers that will be created in the pool at startup time. These will use the database connection parameter -dsn for identifying the base database to connect to.";
+  var free = "free help: <br> The maximum number of application servers that may be left idle. Once this limit is reached, the pool will start shrinking as necessary by destroying idle application servers.";
+  var idle_timeout = "idle_timeout help: <br> Minimum: none, but 60 is recommended The amount of time, in seconds, that a client can be idle before it is disconnected."; 
+  var session_timeout = "session_timeout help: <br> Minimum 3600 (1 hour). The amount of time, in seconds, that a client's session state is maintained by the pool manager before being discarded. The application server and the Dimensions CM license token are then returned to the pool. NOTE This value overrides the session-timeout parameter used in web-inf\web.xml files.";
+  
+  function displayHelp(document, field) {
+  	
+	var help="";
+	switch(field) {
+	case "service":
+		help =  service;
+		break;
+	case "user":
+		help = user;
+		break;
+	case "dsn":
+		help = dsn;
+		break;
+	case "min":
+		help = min;
+		break;
+	case "max":
+		help = max;
+		break;
+	case "initial":
+		help = initial;
+		break;
+	case "free":
+		help = free;
+		break;
+	case "idle_timeout":
+		help = idle_timeout;
+		break;
+	case "session_timeout":
+		help = session_timeout;
+		break;
+	}
+	 document.getElementById("help").innerHTML=help;
+  }
+  </script>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

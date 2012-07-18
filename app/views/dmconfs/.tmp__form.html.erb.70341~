@@ -1,0 +1,79 @@
+<%= form_for(@dmconf) do |f| %>
+  <% if @dmconf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dmconf.errors.count, "error") %> prohibited this dmconf from being saved:</h2>
+
+      <ul>
+      <% @dmconf.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :path %>:    <%= @dmconf.path %>
+  </div>
+  <div class="field">
+	<table>
+		<tr>
+			<td><%= f.label :service %></td>
+			<td>:</td>
+			<td><%= f.text_field :service %></td>
+			<td> <%= link_to image_tag("help.gif", alt: "Rails")%></td>
+		</tr>
+		<tr>
+			<td><%= f.label :user %></td>
+			<td>:</td>
+			<td><%= f.text_field :user %></td>
+			<td> <img src="/images/help.gif"/></td>
+		</tr>
+		<tr>
+			<td><%= f.label :min %></td>
+			<td>:</td>
+			<td><%= f.text_field :min %></td>
+			<td> <img src="/images/help.gif"/></td>
+		</tr>
+		<tr>
+			<td><%= f.label :max %></td>
+			<td>:</td>
+			<td><%= f.text_field :max %></td>
+			<td> <img src="/images/help.gif"/></td>
+		</tr>
+		<tr>
+			<td><%= f.label :dsn %></td>
+			<td>:</td>
+			<td><%= f.text_field :dsn %></td>
+			<td> <img src="/images/help.gif"/></td>
+		</tr>
+		<tr>
+			<td><%= f.label :initial %></td>
+			<td>:</td>
+			<td><%= f.text_field :initial %></td>
+			<td> <img src="/images/help.gif"/></td>
+		</tr>
+		<tr>
+			<td><%= f.label :free %></td>
+			<td>:</td>
+			<td><%= f.text_field :free %></td>
+			<td> <img src="/images/help.gif"/></td>
+		</tr>
+		<tr>
+			<td><%= f.label :idle_timeout %></td>
+			<td>:</td>
+			<td><%= f.text_field :idle_timeout %></td>
+			<td> <img src="/images/help.gif"/></td>
+		</tr>
+		<tr>
+			<td><%= f.label :session_timeout %></td>
+			<td>:</td>
+			<td><%= f.text_field :session_timeout %></td>
+			<td> <img src="/images/help.gif"/></td>
+		</tr>
+	</table>	
+  </div>
+  <div class="actions">
+    
+	<input type="submit" value="Update" name="commit">
+  </div>
+<% end %>

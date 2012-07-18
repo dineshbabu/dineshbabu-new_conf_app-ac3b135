@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Path:</b>
+  <%= @dmconf.path %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @dmconf.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_dmconf_path(@dmconf) %> |
+<%= link_to 'Back', dmconfs_path %>

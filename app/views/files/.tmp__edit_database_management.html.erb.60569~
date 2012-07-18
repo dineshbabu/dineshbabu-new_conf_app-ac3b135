@@ -1,0 +1,125 @@
+<script>
+	$(document).ready(function() {
+		$( "#tabs" ).tabs();
+		$( "#ConnectionDetailsSubTabs" ).tabs();
+		$( "#CreateSampleDatabaseSubTabs" ).tabs();
+		$( "#UpgradeSubTabs" ).tabs();
+		
+		/*$('#connDetails').bind('click', function(){
+			$( "#tabs1subtabs" ).tabs();
+		});
+		$('#createSampleDatabase').bind('click', function(){
+			$( "#tabs2subtabs" ).tabs();
+		});
+		$('#upgrade').bind('click', function(){
+			$( "#tabs3subtabs" ).tabs();
+		});*/
+	});	
+	
+</script>
+
+<div class="demo">
+
+<div id="tabs">
+	<ul>
+		<li><a href="#ConnectionDetailsSubTabs">Connection Details</a></li>
+		<li><a href="#CreateSampleDatabaseSubTabs">Create Sample Database</a></li>
+		<li><a href="#UpgradeSubTabs">Upgrade</a></li>
+	</ul>
+	
+	<div id="ConnectionDetailsSubTabs">
+		<ul>
+			<li><a href="#ConnectionDetailsSubTabs-1-content">Typical Stream Development1</a></li>
+			<li><a href="#ConnectionDetailsSubTabs-2-content">Typical Non-Stream Development1</a></li>
+			<li><a href="#ConnectionDetailsSubTabs-3-content">Intermediate1</a></li>
+			<li><a href="#ConnectionDetailsSubTabs-4-content">Custom1</a></li>
+		</ul>
+		
+		<div id="ConnectionDetailsSubTabs-1-content">
+			<p>
+				Typical Stream Development1 content
+			</p>
+		</div>
+		
+		<div id="ConnectionDetailsSubTabs-2-content">
+			<p>
+				Typical Non-Stream Development1 content
+			</p>
+		</div>
+		
+		<div id="ConnectionDetailsSubTabs-3-content">
+			<p>
+				Intermediate1 content
+			</p>
+		</div>
+		<div id="ConnectionDetailsSubTabs-4-content">
+			<p>
+				Custom1 content
+			</p>
+		</div>
+	</div>	
+	
+	<div id="CreateSampleDatabaseSubTabs">
+		<ul>
+			<li><a href="#CreateSampleDatabaseSubTabs-1-content">Typical Stream Development2</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-2-content">Typical Non-Stream Development2</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-3-content">Intermediate2</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-4-content">Custom2</a></li>
+		</ul>
+		<div id="CreateSampleDatabaseSubTabs-1-content">
+			<p>
+				<%= render 'typical_stream_development' %>
+				Typical Stream Development2 content
+			</p>
+		</div>
+		
+		<div id="CreateSampleDatabaseSubTabs-2-content">
+			<p>
+				Typical Non-Stream Development2 content
+			</p>
+		</div>
+		
+		<div id="CreateSampleDatabaseSubTabs-3-content">
+			<p>
+				Intermediate2 content
+			</p>
+		</div>
+		<div id="CreateSampleDatabaseSubTabs-4-content">
+			<p>
+				Custom2 content
+			</p>
+		</div>
+	</div>
+	<div id="UpgradeSubTabs">
+		<ul>
+			<li><a href="#UpgradeSubTabs-1-content">Typical Stream Development3</a></li>
+			<li><a href="#UpgradeSubTabs-2-content">Typical Non-Stream Development3</a></li>
+			<li><a href="#UpgradeSubTabs-3-content">Intermediate3</a></li>
+			<li><a href="#UpgradeSubTabs-4-content">Custom3</a></li>
+		</ul>
+		<div id="UpgradeSubTabs-1-content">
+			<p>
+				Typical Stream Development3 content
+			</p>
+		</div>
+		
+		<div id="UpgradeSubTabs-2-content">
+			<p>
+				Typical Non-Stream Development3 content
+			</p>
+		</div>
+		
+		<div id="UpgradeSubTabs-3-content">
+			<p>
+				Intermediate3 content
+			</p>
+		</div>
+		<div id="UpgradeSubTabs-4-content">
+			<p>
+				Custom3 content
+			</p>
+		</div>
+	</div>
+</div>
+
+</div><!-- End demo -->

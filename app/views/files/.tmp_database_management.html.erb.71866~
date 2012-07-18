@@ -1,0 +1,68 @@
+<script>
+	$(document).ready(function() {
+		$( "#tabs" ).tabs();
+		$( "#CreateSampleDatabaseSubTabs" ).tabs({ spinner: "Please wait..." });
+		/*$( "#connectionDetailsTab").bind("click", function(){
+			$("#connectionDetailsTab").attr("href" ,"/files/editconnectiondetails");
+			if( $("#connectionDetailsTab").attr("href") != "#ui-tabs-1"){
+				$("#connectionDetailsTab").removeAttr("href");
+			}
+		});*/
+	});	
+	
+	function getConnectionDetails(){
+		$("#connectionDetailsTab").attr("href" ,"/files/editconnectiondetails");
+		$("#connectionDetailsTab").click();
+	}
+</script>
+
+<div class="demo">
+<h1>Database Management</h1><br>
+<div id="tabs">
+	<ul>
+		<!--<li><a href="#ConnectionDetailsContents">Connection Details</a></li> -->
+		<li><a id="connectionDetailsTab" href="#ConnectionDetailsContents">Connection Details</a></li>		
+		<li><a href="#CreateSampleDatabaseSubTabs">Create Sample Database</a></li>
+		<li><a href="#UpgradeContents">Upgrade</a></li>
+	</ul>
+	
+	<div id="ConnectionDetailsContents">
+		<iframe scrolling="no" frameborder="0" height="360px" width="100%" src="/files/editconnectiondetails"></iframe>
+	</div>
+	
+	<div id="CreateSampleDatabaseSubTabs">
+		<ul>
+			<!--<li><a href="#CreateSampleDatabaseSubTabs-1-content">Typical Stream Development2</a></li>-->
+			<li><a href="#EditTypicalStreamDevelopmentContents">Typical Stream Development</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-2-content">Typical Non-Stream Development</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-3-content">Intermediate</a></li>
+			<li><a href="#CreateSampleDatabaseSubTabs-4-content">Custom</a></li>
+		</ul>
+		
+		<div id="EditTypicalStreamDevelopmentContents">
+			<iframe scrolling="auto" frameborder="0" height="325px" width="100%" src="/files/edittypicalstreamdevelopment"></iframe>
+		</div>
+		
+		<div id="CreateSampleDatabaseSubTabs-2-content">
+			<p>
+				Typical Non-Stream Development under construction
+			</p>
+		</div>
+		
+		<div id="CreateSampleDatabaseSubTabs-3-content">
+			<p>
+				Intermediate under construction
+			</p>
+		</div>
+		<div id="CreateSampleDatabaseSubTabs-4-content">
+			<p>
+				Custom under construction
+			</p>
+		</div>
+	</div>
+	<div id="UpgradeContents">
+		<iframe scrolling="auto" frameborder="0" height="325px" width="100%" src="/files/displaydatabases"></iframe>
+	</div>
+</div>
+
+</div><!-- End demo -->

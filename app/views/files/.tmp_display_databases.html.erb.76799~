@@ -1,0 +1,21 @@
+<%= form_tag("/files/upgradedatabase" , method: "post") do%>
+   	<table width="550" border="0">
+	    <tr>
+	        <td >
+	        	List of installed databases, select the databases to be upgraded.
+	        </td>
+	    </tr>
+		<tr >
+	        <td >
+	        	<%= select_tag "", options_for_select(@databases), :multiple => true, :size => 10  %>
+	        </td>
+	    </tr>
+		<tr >
+	        <td >
+	        	<%= button_tag "Test", :type => 'button' %>
+				<%= button_tag "Upgrade", :type => 'button' %>
+	        </td>
+	    </tr>
+    </table>
+
+<% end %>
